@@ -239,3 +239,6 @@ node_modules/
 [Ll]og/
 [Ll]ogs/
 [Ll]og/
+
+# MongoDB
+server/

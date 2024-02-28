@@ -5,4 +5,23 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's contact policy.</p>
+<p>Have a question or concern? Contact us!</p>
+
+<form method="post">
+    <div>
+        <label for="inputEmail">Email:</label>
+        <input type="email" id="inputEmail" name="email" />
+    </div>
+    <br />
+    <div>
+        <label for="inputName">Name:</label>
+        <input type="text" id="inputName" name="name" />
+    </div>
+    <br />
+    <div>
+        <label for="inputMessage">Message:</label>
+        <textarea id="inputMessage" name="message"></textarea>
+    </div>
+    <br />
+    <button type="submit">Submit</button>
+</form>

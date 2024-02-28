@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
