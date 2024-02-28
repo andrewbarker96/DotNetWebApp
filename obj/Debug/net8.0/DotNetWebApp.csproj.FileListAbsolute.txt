@@ -24,3 +24,8 @@
 /Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/DotNetWebApp.pdb
 /Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/DotNetWebApp.genruntimeconfig.cache
 /Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/ref/DotNetWebApp.dll
+/Users/andrew/Documents/GitHub/DotNetWebApp/bin/Debug/net8.0/DotNetWebApp.staticwebassets.runtime.json
+/Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/DotNetWebApp.RazorAssemblyInfo.cache
+/Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/DotNetWebApp.RazorAssemblyInfo.cs
+/Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
+/Users/andrew/Documents/GitHub/DotNetWebApp/obj/Debug/net8.0/scopedcss/projectbundle/DotNetWebApp.bundle.scp.css
