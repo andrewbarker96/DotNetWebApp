@@ -18,12 +18,16 @@ namespace DotNetWebApp.Pages
         {
         }
 
-        public IActionResult OnPostSubmitForm(string name, string email, string message)
+        public void OnPost()
         {
             string connectionString = "Data Source=|DataDirectory|/database.db;";
 
             try
             {
+                string? name = Request.Form["name"];
+                string? email = Request.Form["email"];
+                string? message = Request.Form["message"];
+
                 using var connection = new SQLiteConnection(connectionString);
                 connection.Open();
 
@@ -42,13 +46,13 @@ namespace DotNetWebApp.Pages
 
                 command.ExecuteNonQuery();
 
-                return new OkResult();
+                //return new OkResult();
             }
             catch (Exception ex)
             {
                 // Log the exception for debugging
                 _logger.LogError($"Error: {ex.Message}");
-                return new StatusCodeResult(500); // Internal Server Error
+                //return new StatusCodeResult(500); // Internal Server Error
             }
         }
     }
