@@ -1,4 +1,4 @@
-using System.Data.SQLite;
+using Microsoft.Data.Sqlite;
 
 // ...
 
@@ -6,16 +6,16 @@ public class ConnectionManager
 {
     public void ConnectToDatabase()
     {
-        string connectionString = "Data Source=|DataDirectory|/database.db;Version=3;";
+        string connectionString = "Data Source=./database.db;Version=3;";
 
-        using (var connection = new SQLiteConnection(connectionString))
+        using (var connection = new SqliteConnection(connectionString))
         {
             connection.Open();
 
             string sql = "select * from contact";
-            using (var command = new SQLiteCommand(sql, connection))
+            using (var command = new SqliteCommand(sql, connection))
             {
-                using (SQLiteDataReader reader = command.ExecuteReader())
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {

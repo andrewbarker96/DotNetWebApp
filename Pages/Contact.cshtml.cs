@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
-using System.Data.SQLite;
+using Microsoft.Data.Sqlite;
 
 namespace DotNetWebApp.Pages
 {
@@ -20,7 +20,7 @@ namespace DotNetWebApp.Pages
 
         public void OnPost()
         {
-            string connectionString = "Data Source=|DataDirectory|/database.db;";
+            string connectionString = "Data Source=./database.db;";
 
             try
             {
@@ -28,18 +28,18 @@ namespace DotNetWebApp.Pages
                 string? email = Request.Form["email"];
                 string? message = Request.Form["message"];
 
-                using var connection = new SQLiteConnection(connectionString);
+                using var connection = new SqliteConnection(connectionString);
                 connection.Open();
 
                 // Create the Contact table if it doesn't exist
-                using (var createTableCommand = new SQLiteCommand("CREATE TABLE IF NOT EXISTS Contact (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Email TEXT, Message TEXT)", connection))
+                using (var createTableCommand = new SqliteCommand("CREATE TABLE IF NOT EXISTS Contact (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Email TEXT, Message TEXT)", connection))
                 {
                     createTableCommand.ExecuteNonQuery();
                 }
 
                 string sql = "INSERT INTO Contact (Name, Email, Message) VALUES (@name, @email, @message)";
 
-                using var command = new SQLiteCommand(sql, connection);
+                using var command = new SqliteCommand(sql, connection);
                 command.Parameters.AddWithValue("@name", name);
                 command.Parameters.AddWithValue("@email", email);
                 command.Parameters.AddWithValue("@message", message);
@@ -63,17 +63,17 @@ namespace DotNetWebApp.Pages
 
         private void getAllContacts()
         {
-            string connectionString = "Data Source=|DataDirectory|/database.db;";
+            string connectionString = "Data Source=./database.db;";
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
 
                 string query = "SELECT * FROM Contact";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SqliteCommand command = new SqliteCommand(query, connection))
                 {
-                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
